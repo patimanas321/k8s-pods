@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 
+import DataGrid from "../../Components/DataGrid";
 import PodsClient from "../../APIs/pods.client";
+import styles from './Pods.module.css';
 
 const Pods = () => {
     const [podList, setPodList] = useState([]);
@@ -11,23 +13,31 @@ const Pods = () => {
         setPodList(pods);
     };
 
+    const cols = [
+        {
+            title: 'Name',
+            field: 'name'
+        },
+        {
+            title: 'Namespace',
+            field: 'namespace'
+        },
+        {
+            title: 'Status',
+            field: 'status'
+        },
+        {
+            title: 'Age',
+            field: 'age'
+        }
+    ];
+
     useEffect(() => {
         refreshData();
     }, []);
 
     return (
-        <div>
-            {
-                podList.map(pod => (
-                    <div key={pod.id}>
-                        <div>Name: {pod.name}</div>
-                        <div>Namespace: {pod.namespace}</div>
-                        <div>Age: {pod.age}</div>
-                        <div>Status: {pod.status}</div>
-                    </div>
-                ))
-            }
-        </div>
+        <DataGrid columns={cols} rows={podList} />
     );
 };
 
