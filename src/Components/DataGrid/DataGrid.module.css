@@ -14,3 +14,9 @@
 .headerCell {
     font-weight: bold;
 }
+
+.noData {
+    padding: 2rem;
+    text-align: center;;
+    color: #727070;
+}

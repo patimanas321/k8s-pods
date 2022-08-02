@@ -1,18 +1,13 @@
 import { useState, useEffect } from "react";
 
+import SearchBox from  "../../Components/SearchBox";
 import DataGrid from "../../Components/DataGrid";
 import PodsClient from "../../APIs/pods.client";
-import styles from './Pods.module.css';
+import { filter } from "./utils";
 
 const Pods = () => {
-    const [podList, setPodList] = useState([]);
-
-    const refreshData = async () => {
-        const pods = await PodsClient.getAllPods();
-
-        setPodList(pods);
-    };
-
+    const [allPods, setAllPods] = useState([]);
+    const [visiblePods, setVisiblePods] = useState([]);
     const cols = [
         {
             title: 'Name',
@@ -31,13 +26,46 @@ const Pods = () => {
             field: 'age'
         }
     ];
+    const searchByColumns = [
+        {
+            label: 'Name',
+            value: 'name',
+        },
+        {
+            label: 'Namespace',
+            value: 'namespace',
+        }
+    ];
+
+    const refreshData = async () => {
+        const pods = await PodsClient.getAllPods();
+
+        setAllPods(pods);
+    };
+
+    const handleSearch = (searchByCol, searchText) => {
+        setVisiblePods(filter(allPods, searchByCol, searchText));
+    };
+
+    useEffect(() => {
+        handleSearch();
+    }, [allPods]);
 
     useEffect(() => {
         refreshData();
     }, []);
 
     return (
-        <DataGrid columns={cols} rows={podList} />
+        <>
+            <SearchBox
+                searchColumns={searchByColumns}
+                onSearch={handleSearch}
+            />
+            <DataGrid
+                columns={cols}
+                rows={visiblePods}
+            />
+        </>
     );
 };
 
