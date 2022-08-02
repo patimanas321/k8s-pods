@@ -29,7 +29,7 @@ const DataGrid = ({
                 }
             </div>
             {
-                rows.length && rows.map((row, index) => (
+                !!rows.length && rows.map((row, index) => (
                     <div
                         role="row"
                         key={row.id ?? index}
@@ -50,6 +50,11 @@ const DataGrid = ({
                         }
                     </div>
                 ))
+            }
+            {
+                !rows.length && (
+                    <h3 className={styles.noData}>No Pods matches your search criteria</h3>
+                )
             }
         </div>
     );
