@@ -6,6 +6,10 @@ const AppConstants = {
     success: 'Success',
     failed: 'Failed',
     unknown: 'Unknown'
+  },
+  SORT_ORDER: {
+    Ascending: 'asc',
+    Descending: 'desc'
   }
 };
 

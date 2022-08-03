@@ -20,3 +20,13 @@
     text-align: center;;
     color: #727070;
 }
+
+.sortableHeader {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.sortHandle {
+    color: #808080;
+}
