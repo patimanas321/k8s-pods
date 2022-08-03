@@ -7,12 +7,14 @@ import styles from './IconButton.module.css';
 const IconButton = ({
   icon,
   type,
-  ariaLabel
+  ariaLabel,
+  testId
 }) => (
   <button
     aria-label={ariaLabel}
     className={styles.iconBtn}
     type={type}
+    data-testid={testId}
   >
     <FontAwesomeIcon icon={icon} />
   </button>
@@ -20,7 +22,8 @@ const IconButton = ({
 IconButton.propTypes = {
   icon: PropTypes.object.isRequired,
   type: PropTypes.string.isRequired,
-  ariaLabel: PropTypes.string.isRequired
+  ariaLabel: PropTypes.string.isRequired,
+  testId: PropTypes.string
 };
 
 export default IconButton;
