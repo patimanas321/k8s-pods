@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
-
-import Select from '../Select';
-import TextField from '../TextField';
 import PropTypes from 'prop-types';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+
+import styles from './SearchBox.module.css';
+import Select from '../Select';
+import IconButton from '../IconButton';
+import TextField from '../TextField';
 
 const SearchBox = ({
   searchColumns,
   onSearch
 }) => {
   const [searchByCol, setSearchByCol] = useState('name');
-  const [searchText, setSearchText] = useState();
+  const [searchText, setSearchText] = useState('');
 
   const onSubmit = (event) => {
     event.preventDefault();
@@ -17,7 +20,7 @@ const SearchBox = ({
   };
 
   return (
-    <form onSubmit={onSubmit}>
+    <form className={styles.searchBox} onSubmit={onSubmit}>
       <Select
         options={searchColumns}
         value={ searchByCol }
@@ -27,7 +30,7 @@ const SearchBox = ({
         value={searchText}
         onChange={setSearchText}
       />
-      <button type='submit'>Search</button>
+      <IconButton icon={faMagnifyingGlass} type='submit' />
     </form>
   );
 };

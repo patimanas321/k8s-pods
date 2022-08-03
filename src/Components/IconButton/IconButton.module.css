@@ -1,0 +1,13 @@
+.iconBtn {
+    font-size: 1.25rem;
+    border: none;
+    background: transparent;
+    margin: 0.25rem;
+    padding: 0.5rem;
+}
+
+.iconBtn:hover {
+    cursor: pointer;
+    background-color: lightgray;
+    border-radius: 50%;
+}

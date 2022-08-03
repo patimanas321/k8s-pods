@@ -1,6 +1,7 @@
 import React from 'react';
-import styles from './TextField.module.css';
 import PropTypes from 'prop-types';
+
+import styles from './TextField.module.css';
 
 const TextField = ({
   type = 'text',

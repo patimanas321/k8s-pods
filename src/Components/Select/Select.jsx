@@ -1,6 +1,7 @@
 import React from 'react';
-import styles from './Select.module.css';
 import PropTypes from 'prop-types';
+
+import styles from './Select.module.css';
 
 const Select = ({
   options,
