@@ -3,11 +3,11 @@ As a K8s administrator I should be able to view pods’ details in my cluster.
 
 ![Kubernetes Pods](./Screenshots/Screenshot_1.png)
 
-## Configure the App
+# Configure the App
 - Open [.env.development](./.env.development) file
 - Replace `REACT_APP_API_URL` with the minikube proxy url
 
-## Enable CORS in minikube proxy
+# Enable CORS in minikube proxy
 - CORS must be enabled in order to allow the web app to fetch data from the proxy server.
 - Make sure to include `cors-allowed-origins` `config`.
 
@@ -15,7 +15,7 @@ As a K8s administrator I should be able to view pods’ details in my cluster.
 minikube start --extra-config "apiserver.cors-allowed-origins=["http://\*"]"
 ```
 
-## Available Scripts
+# Running the Application
 
 In the project directory, you can run:
 
@@ -42,3 +42,17 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+# Lighthouse Score
+This score is generated for desktop.
+
+![Lighthouse Score](./Screenshots/Screenshot_2.png)
+
+# Enhancement Areas
+## State Management
+Application state can be moved to `redux store`. Currently application state is managed by each component. This is not included because `redux` was not in approved libraries list.
+
+## Unit Testing
+Unit test cases are included only for few components. The coverage can be enhanced.
+
+## End to end testing
+Cypress tests can be written to test the application's end-to-end flow. This is not included because `cypress` was not in approved libraries list.

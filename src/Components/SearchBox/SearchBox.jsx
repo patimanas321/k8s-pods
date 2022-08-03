@@ -48,6 +48,7 @@ const SearchBox = ({
       {
         searchByCol === 'name' && (
           <TextField
+            ariaLabel="Name"
             value={searchText}
             style={styles.searchField}
             onChange={setSearchText}
