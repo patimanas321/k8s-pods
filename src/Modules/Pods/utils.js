@@ -1,3 +1,5 @@
+import AppConstants from '../../Constants/AppConstants';
+
 export function filter (pods, searchByCol, searchText) {
   if (!searchText) return pods;
 
@@ -13,10 +15,10 @@ export function filter (pods, searchByCol, searchText) {
   }
 }
 
-export function sort (pods, sortCol, sortOrder = 'asc') {
+export function sort (pods, sortCol, sortOrder = AppConstants.SORT_ORDER.Ascending) {
   const copy = [...pods];
   copy.sort((a, b) => {
-    if (sortOrder === 'asc') {
+    if (sortOrder === AppConstants.SORT_ORDER.Ascending) {
       return a[sortCol] > b[sortCol] ? 1 : -1;
     }
     return a[sortCol] > b[sortCol] ? -1 : 1;
