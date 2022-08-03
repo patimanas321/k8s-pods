@@ -10,7 +10,8 @@ const AppConstants = {
   SORT_ORDER: {
     Ascending: 'asc',
     Descending: 'desc'
-  }
+  },
+  READABLE_DATE_FORMAT_OPTIONS: { weekday: 'long', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' }
 };
 
 export default AppConstants;

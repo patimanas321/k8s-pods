@@ -6,9 +6,11 @@ import styles from './IconButton.module.css';
 
 const IconButton = ({
   icon,
-  type
+  type,
+  ariaLabel
 }) => (
   <button
+    aria-label={ariaLabel}
     className={styles.iconBtn}
     type={type}
   >
@@ -17,7 +19,8 @@ const IconButton = ({
 );
 IconButton.propTypes = {
   icon: PropTypes.object.isRequired,
-  type: PropTypes.string.isRequired
+  type: PropTypes.string.isRequired,
+  ariaLabel: PropTypes.string.isRequired
 };
 
 export default IconButton;

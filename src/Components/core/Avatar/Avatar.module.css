@@ -1,0 +1,15 @@
+.avatar {
+    padding: 0.2rem;
+    min-width: 1.6rem;
+    min-height: 1.6rem;
+    margin-right: 0.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #d3d3d3;
+    border-radius: 50%;
+    text-align: center;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheckCircle, faExclamationCircle, faCircleXmark, faClock, faHourglass } from '@fortawesome/free-solid-svg-icons';
+import { faCheckCircle, faExclamationCircle, faCircleXmark, faClock, faHourglass, faEarthAmerica } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './Pods.module.css';
-import { DataGrid } from '../../Components/core';
+import { DataGrid, Avatar } from '../../Components/core';
 import SearchBox from '../../Components/SearchBox';
 import PodsClient from '../../APIs/pods.client';
 import AppConstants from '../../Constants/AppConstants';
@@ -19,12 +19,24 @@ const Pods = () => {
     {
       title: 'Name',
       field: 'name',
-      sortable: true
+      sortable: true,
+      renderCell: (value) => (
+        <>
+          <Avatar text={value} />
+          <span>{value}</span>
+        </>
+      )
     },
     {
       title: 'Namespace',
       field: 'namespace',
-      sortable: true
+      sortable: true,
+      renderCell: (value) => (
+        <>
+          <Avatar text={value} />
+          <span>{value}</span>
+        </>
+      )
     },
     {
       title: 'Status',
@@ -45,32 +57,37 @@ const Pods = () => {
       title: 'Age',
       field: 'createdOn',
       sortable: true,
-      renderCell: (value) => value.toLocaleString()
+      renderCell: (value) => (
+        <>
+          <i aria-hidden="true" className={styles.icon}><FontAwesomeIcon icon={faEarthAmerica} /></i>
+          <span>{value.toLocaleDateString('en-us', AppConstants.READABLE_DATE_FORMAT_OPTIONS)}</span>
+        </>
+      )
     }
   ];
   const statusIcons = {
     [AppConstants.POD_STATUS.success]: (
-      <i className={`${styles.icon} ${styles.success}`}>
+      <i aria-hidden="true" className={`${styles.icon} ${styles.success}`}>
         <FontAwesomeIcon icon={faCheckCircle} />
       </i>
     ),
     [AppConstants.POD_STATUS.failed]: (
-      <i className={`${styles.icon} ${styles.failed}`}>
+      <i aria-hidden="true" className={`${styles.icon} ${styles.failed}`}>
         <FontAwesomeIcon icon={faCircleXmark} />
       </i>
     ),
     [AppConstants.POD_STATUS.pending]: (
-      <i className={`${styles.icon} ${styles.pending}`}>
+      <i aria-hidden="true" className={`${styles.icon} ${styles.pending}`}>
         <FontAwesomeIcon icon={faHourglass} />
       </i>
     ),
     [AppConstants.POD_STATUS.running]: (
-      <i className={`${styles.icon} ${styles.running}`}>
+      <i aria-hidden="true" className={`${styles.icon} ${styles.running}`}>
         <FontAwesomeIcon icon={faClock} />
       </i>
     ),
     [AppConstants.POD_STATUS.unknown]: (
-      <i className={`${styles.icon} ${styles.unknown}`}>
+      <i aria-hidden="true" className={`${styles.icon} ${styles.unknown}`}>
         <FontAwesomeIcon icon={faExclamationCircle} />
       </i>
     )

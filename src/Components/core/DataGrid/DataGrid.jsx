@@ -47,7 +47,7 @@ const DataGrid = ({
                 col.sortable && (
                   <a className={styles.sortableHeader} onClick={() => handleColumnSort(col.field)}>
                     <span>{col.title}</span>
-                    <i className={styles.sortHandle}>
+                    <i aria-hidden="true" className={styles.sortHandle}>
                       { sortCol !== col.field && <FontAwesomeIcon icon={faArrowsUpDown} /> }
                       { sortCol === col.field && <FontAwesomeIcon icon={sortOrder === AppConstants.SORT_ORDER.Ascending ? faArrowDown : faArrowUp} /> }
                     </i>

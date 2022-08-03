@@ -64,7 +64,7 @@ const SearchBox = ({
           />
         )
       }
-      <IconButton icon={faMagnifyingGlass} type='submit' />
+      <IconButton icon={faMagnifyingGlass} type='submit' ariaLabel='search' />
     </form>
   );
 };
