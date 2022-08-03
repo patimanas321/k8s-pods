@@ -11,7 +11,7 @@ export function filter (pods, searchByCol, searchText) {
     return pods.filter(pod => pod.status === searchText);
 
   default:
-    break;
+    return [];
   }
 }
 
