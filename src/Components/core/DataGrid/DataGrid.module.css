@@ -6,6 +6,10 @@
     border-bottom: 1px solid #d3d3d3;
 }
 
+.dataRow:hover {
+    background-color: #ede8e8;
+}
+
 .dataCell, .headerCell {
     flex: 1;
     padding: 1rem;
@@ -13,6 +17,10 @@
 
 .headerCell {
     font-weight: bold;
+}
+
+.headerCell:hover {
+    background-color: #ede8e8;
 }
 
 .noData {

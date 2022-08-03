@@ -70,10 +70,6 @@ const Pods = () => {
       <DataGrid
         columns={cols}
         rows={visiblePods}
-        defaultSortModel={{
-          col: cols[0].field,
-          order: AppConstants.SORT_ORDER.Ascending
-        }}
         sortCol={sortCol}
         sortOrder={sortOrder}
         onSort={handleSort}
