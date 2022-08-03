@@ -5,7 +5,7 @@ export function filter (pods, searchByCol, searchText) {
 
   switch (searchByCol) {
   case 'name':
-    return pods.filter(pod => pod.name === searchText);
+    return pods.filter(pod => pod.name.startsWith(searchText));
 
   case 'status':
     return pods.filter(pod => pod.status === searchText);
