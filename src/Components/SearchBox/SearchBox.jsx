@@ -16,7 +16,7 @@ const SearchBox = ({
 }) => {
   const [searchByCol, setSearchByCol] = useState('name');
   const [searchText, setSearchText] = useState('');
-  const [status, setStatus] = useState('');
+  const [status, setStatus] = useState(AppConstants.POD_STATUS.success);
 
   const onSubmit = (event) => {
     event.preventDefault();
