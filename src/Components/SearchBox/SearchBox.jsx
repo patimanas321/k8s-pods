@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './SearchBox.module.css';
-import Select from '../Select';
-import IconButton from '../IconButton';
-import TextField from '../TextField';
+import { Select, IconButton, TextField } from '../core';
 import AppConstants from '../../Constants/AppConstants';
 
 const searchOptions = {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
+import { DataGrid } from '../../Components/core';
 import SearchBox from '../../Components/SearchBox';
-import DataGrid from '../../Components/DataGrid';
 import PodsClient from '../../APIs/pods.client';
 import { filter } from './utils';
 
