@@ -1,0 +1,19 @@
+.icon {
+    margin-right: 0.5rem;
+}
+
+.success {
+    color: #008000;
+}
+
+.failed {
+    color: #ff0000;
+}
+
+.pending {
+    color: #808080;
+}
+
+.running {
+    color: #9acd32;
+}

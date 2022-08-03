@@ -4,9 +4,6 @@ class Pod {
   namespace;
   status;
   createdOn;
-  get age () {
-    return new Date(this.createdOn).toLocaleString();
-  }
 
   constructor (rawData) {
     if (!rawData) return;
@@ -17,7 +14,7 @@ class Pod {
     this.name = metadata.name;
     this.namespace = metadata.namespace;
     this.status = status.phase;
-    this.createdOn = metadata.creationTimestamp;
+    this.createdOn = new Date(metadata.creationTimestamp);
   }
 }
 

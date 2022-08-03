@@ -96,7 +96,7 @@ DataGrid.propTypes = {
     title: PropTypes.string.isRequired,
     field: PropTypes.string.isRequired,
     sortable: PropTypes.bool,
-    renderCell: PropTypes.node
+    renderCell: PropTypes.func
   })).isRequired,
   sortCol: PropTypes.string,
   sortOrder: PropTypes.string,
