@@ -6,10 +6,11 @@ import styles from './TextField.module.css';
 const TextField = ({
   type = 'text',
   value,
+  style,
   onChange
 }) => (
   <input
-    className={styles.textField}
+    className={`${styles.textField} ${style}`}
     type={type}
     value={value}
     onChange={(event) => onChange(event.target.value)}
@@ -18,6 +19,7 @@ const TextField = ({
 TextField.propTypes = {
   type: PropTypes.string,
   value: PropTypes.string.isRequired,
+  style: PropTypes.string,
   onChange: PropTypes.func.isRequired
 };
 

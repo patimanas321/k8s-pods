@@ -6,39 +6,71 @@ import styles from './SearchBox.module.css';
 import Select from '../Select';
 import IconButton from '../IconButton';
 import TextField from '../TextField';
+import AppConstants from '../../Constants/AppConstants';
+
+const searchOptions = {
+  name: 'name',
+  status: 'status'
+};
 
 const SearchBox = ({
-  searchColumns,
   onSearch
 }) => {
   const [searchByCol, setSearchByCol] = useState('name');
   const [searchText, setSearchText] = useState('');
+  const [status, setStatus] = useState('');
 
   const onSubmit = (event) => {
     event.preventDefault();
-    onSearch(searchByCol, searchText);
+
+    if (searchByCol === searchOptions.name) {
+      onSearch('name', searchText);
+    } else if (searchByCol === searchOptions.status) {
+      onSearch('status', status);
+    } else {
+      onSearch();
+    }
   };
+
+  const statusOptions = Object.values(AppConstants.POD_STATUS).map(status => ({
+    label: status,
+    value: status
+  }));
 
   return (
     <form className={styles.searchBox} onSubmit={onSubmit}>
       <Select
-        options={searchColumns}
-        value={ searchByCol }
+        options={[
+          { label: 'Name', value: searchOptions.name },
+          { label: 'Status', value: searchOptions.status }
+        ]}
+        value={searchByCol}
         onChange={setSearchByCol}
       />
-      <TextField
-        value={searchText}
-        onChange={setSearchText}
-      />
+      {
+        searchByCol === 'name' && (
+          <TextField
+            value={searchText}
+            style={styles.searchField}
+            onChange={setSearchText}
+          />
+        )
+      }
+      {
+        searchByCol === 'status' && (
+          <Select
+            options={statusOptions}
+            value={status}
+            style={styles.searchField}
+            onChange={setStatus}
+          />
+        )
+      }
       <IconButton icon={faMagnifyingGlass} type='submit' />
     </form>
   );
 };
 SearchBox.propTypes = {
-  searchColumns: PropTypes.arrayOf(PropTypes.shape({
-    label: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired
-  })).isRequired,
   onSearch: PropTypes.func.isRequired
 };
 

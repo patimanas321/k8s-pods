@@ -26,16 +26,6 @@ const Pods = () => {
       field: 'age'
     }
   ];
-  const searchByColumns = [
-    {
-      label: 'Name',
-      value: 'name'
-    },
-    {
-      label: 'Namespace',
-      value: 'namespace'
-    }
-  ];
 
   const refreshData = async () => {
     const pods = await PodsClient.getAllPods();
@@ -57,10 +47,7 @@ const Pods = () => {
 
   return (
     <>
-      <SearchBox
-        searchColumns={searchByColumns}
-        onSearch={handleSearch}
-      />
+      <SearchBox onSearch={handleSearch} />
       <DataGrid
         columns={cols}
         rows={visiblePods}

@@ -5,8 +5,8 @@ export function filter (pods, searchByCol, searchText) {
   case 'name':
     return pods.filter(pod => pod.name === searchText);
 
-  case 'namespace':
-    return pods.filter(pod => pod.namespace === searchText);
+  case 'status':
+    return pods.filter(pod => pod.status === searchText);
 
   default:
     break;

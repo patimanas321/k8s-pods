@@ -6,10 +6,11 @@ import styles from './Select.module.css';
 const Select = ({
   options,
   value,
+  style,
   onChange
 }) => (
   <select
-    className={styles.select}
+    className={`${styles.select} ${style}`}
     value={ value }
     onChange={(event) => onChange(event.target.value)}
   >
@@ -31,6 +32,7 @@ Select.propTypes = {
     value: PropTypes.string.isRequired
   })).isRequired,
   value: PropTypes.string.isRequired,
+  style: PropTypes.string,
   onChange: PropTypes.func.isRequired
 };
 

@@ -1,7 +1,6 @@
 .textField {
     padding: 0.5rem;
     border: 1px solid #d3d3d3;
-    width: 20rem;
 }
 
 .textField:focus {
