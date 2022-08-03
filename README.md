@@ -47,6 +47,9 @@ This score is generated for desktop.
 
 ![Lighthouse Score](./Screenshots/Screenshot_2.png)
 
+# Test Coverage
+![Test Coverage](./Screenshots/Screenshot_3.png)
+
 # Enhancement Areas
 ## State Management
 Application state can be moved to `redux store`. Currently application state is managed by each component. This is not included because `redux` was not in approved libraries list.
