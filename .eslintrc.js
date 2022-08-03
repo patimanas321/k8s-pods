@@ -20,5 +20,16 @@ module.exports = {
   rules: {
     semi: [2, 'always'],
     indent: ['error', 2]
-  }
+  },
+  overrides: [
+    {
+      files: [
+        '**/*.spec.js',
+        '**/*.spec.jsx'
+      ],
+      env: {
+        jest: true
+      }
+    }
+  ]
 };

@@ -42,19 +42,30 @@ const DataGrid = ({
               role="columnheader"
               className={styles.headerCell}
               aria-colindex={index + 1}
+              data-testid={`col-header-${col.field}`}
             >
               {
                 col.sortable && (
                   <a className={styles.sortableHeader} onClick={() => handleColumnSort(col.field)}>
-                    <span>{col.title}</span>
-                    <i aria-hidden="true" className={styles.sortHandle}>
+                    <span data-testid={`col-title-${col.field}`}>{col.title}</span>
+                    <i
+                      data-testid={`col-sort-handle-${col.field}`}
+                      aria-hidden="true"
+                      className={styles.sortHandle}
+                    >
                       { sortCol !== col.field && <FontAwesomeIcon icon={faArrowsUpDown} /> }
                       { sortCol === col.field && <FontAwesomeIcon icon={sortOrder === AppConstants.SORT_ORDER.Ascending ? faArrowDown : faArrowUp} /> }
                     </i>
                   </a>
                 )
               }
-              {!col.sortable && col.title}
+              {
+                !col.sortable && (
+                  <span data-testid={`col-title-${col.field}`}>
+                    {col.title}
+                  </span>
+                )
+              }
             </div>
           ))
         }
@@ -66,6 +77,7 @@ const DataGrid = ({
             key={row.id ?? index}
             className={styles.dataRow}
             aria-rowindex={index + 2}
+            data-testid={`data-row-${index}`}
           >
             {
               columns.map((col, index) => (
@@ -84,7 +96,12 @@ const DataGrid = ({
       }
       {
         !rows.length && (
-          <h3 className={styles.noData}>No Pods matches your search criteria</h3>
+          <h3
+            data-testid="no-data-message"
+            className={styles.noData}
+          >
+            No Pods matches your search criteria
+          </h3>
         )
       }
     </div>
