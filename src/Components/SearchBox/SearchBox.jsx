@@ -11,8 +11,13 @@ const SearchBox = ({
   const [searchByCol, setSearchByCol] = useState('name');
   const [searchText, setSearchText] = useState();
 
+  const onSubmit = (event) => {
+    event.preventDefault();
+    onSearch(searchByCol, searchText);
+  };
+
   return (
-    <div>
+    <form onSubmit={onSubmit}>
       <Select
         options={searchColumns}
         value={ searchByCol }
@@ -22,12 +27,8 @@ const SearchBox = ({
         value={searchText}
         onChange={setSearchText}
       />
-      <button
-        onClick={() => onSearch(searchByCol, searchText)}
-      >
-                Search
-      </button>
-    </div>
+      <button type='submit'>Search</button>
+    </form>
   );
 };
 SearchBox.propTypes = {
