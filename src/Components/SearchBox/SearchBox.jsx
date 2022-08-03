@@ -1,6 +1,7 @@
 import { useState } from "react";
 
-import styles from "./SearchBox.module.css";
+import Select from "../Select";
+import TextField from "../TextField";
 
 const SearchBox = ({
     searchColumns,
@@ -11,22 +12,14 @@ const SearchBox = ({
 
     return (
         <div>
-            <select
-                className={styles.searchByCol}
+            <Select
+                options={searchColumns}
                 value={ searchByCol }
-                onChange={(event) => setSearchByCol(event.target.value)}
-            >
-                {
-                    searchColumns.map(({label, value}) => (
-                        <option key={value} value={value}>{label}</option>
-                    ))
-                }
-            </select>
-            <input
-                className={styles.search}
-                type="text"
+                onChange={setSearchByCol}
+            />
+            <TextField
                 value={searchText}
-                onChange={(event) => setSearchText(event.target.value)}
+                onChange={setSearchText}
             />
             <button
                 onClick={() => onSearch(searchByCol, searchText)}

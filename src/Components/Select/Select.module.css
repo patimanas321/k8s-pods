@@ -1,0 +1,9 @@
+.select, .search {
+    padding: 0.5rem;
+    border: 1px solid #d3d3d3;
+}
+
+.select:focus {
+    border-bottom: 2px solid blue;
+    outline: none;
+}
