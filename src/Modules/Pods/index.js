@@ -1,3 +1,3 @@
-import Pods from "./Pods";
+import Pods from './Pods';
 
 export default Pods;

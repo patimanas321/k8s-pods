@@ -1,23 +1,24 @@
 class Pod {
-    id;
-    name;
-    namespace;
-    status;
-    createdOn;
-    get age() {
-        return new Date(this.createdOn).toLocaleString();
-    }
-    constructor(rawData) {
-        if (!rawData) return;
+  id;
+  name;
+  namespace;
+  status;
+  createdOn;
+  get age () {
+    return new Date(this.createdOn).toLocaleString();
+  }
 
-        const { metadata, status } = rawData;
+  constructor (rawData) {
+    if (!rawData) return;
 
-        this.id = metadata.uid;
-        this.name = metadata.name;
-        this.namespace = metadata.namespace;
-        this.status = status.phase;
-        this.createdOn = metadata.creationTimestamp;
-    }
+    const { metadata, status } = rawData;
+
+    this.id = metadata.uid;
+    this.name = metadata.name;
+    this.namespace = metadata.namespace;
+    this.status = status.phase;
+    this.createdOn = metadata.creationTimestamp;
+  }
 }
 
 export default Pod;
