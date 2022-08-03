@@ -49,7 +49,7 @@ const DataGrid = ({
                     <span>{col.title}</span>
                     <i className={styles.sortHandle}>
                       { sortCol !== col.field && <FontAwesomeIcon icon={faArrowsUpDown} /> }
-                      { sortCol === col.field && <FontAwesomeIcon icon={sortOrder === AppConstants.SORT_ORDER.Ascending ? faArrowUp : faArrowDown} /> }
+                      { sortCol === col.field && <FontAwesomeIcon icon={sortOrder === AppConstants.SORT_ORDER.Ascending ? faArrowDown : faArrowUp} /> }
                     </i>
                   </a>
                 )
